@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  postgres:
+    restart: always
+    image: postgres:10.1
+    environment:
+      - POSTGRES_USER=whisp
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=whisp_db
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data:z
+    ports:
+      - 5432:5432
