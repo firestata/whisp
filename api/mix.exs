@@ -39,7 +39,8 @@ defmodule Whisp.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-			{:comeonin, "~> 2.5"}
+			{:comeonin, "~> 2.5"},
+			{:guardian, "~> 0.14.6"}
     ]
   end
 

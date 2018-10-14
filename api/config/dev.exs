@@ -45,4 +45,7 @@ config :whisp, Whisp.Repo,
   hostname: "localhost",
   pool_size: 10
 
+config :guardian, Guardian,
+	secret_key: "vo3nnVAg3fSDF8VMtlKnUida6OxeuLR8zZsM9haMbtXkXkRXGUTXc2JwU1UJxh8O"
+
 import_config "dev.secret.exs"
