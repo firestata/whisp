@@ -17,3 +17,5 @@ erl_crash.dump
 
 # postgres's docker volume
 /api/data
+
+/api/_build
