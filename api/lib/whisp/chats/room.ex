@@ -5,7 +5,7 @@ defmodule Whisp.Chats.Room do
   schema "rooms" do
     field :name, :string
     field :topic, :string
-		many_to_many :users, Whisp.Account.User, join_through: "user_rooms"
+    many_to_many :users, Whisp.Account.User, join_through: "user_rooms"
 
     timestamps()
   end
@@ -15,6 +15,6 @@ defmodule Whisp.Chats.Room do
     room
     |> cast(attrs, [:name, :topic])
     |> validate_required([:name])
-		|> unique_constraint(:name)
+    |> unique_constraint(:name)
   end
 end

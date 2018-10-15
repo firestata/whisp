@@ -4,7 +4,7 @@ defmodule WhispWeb.UserController do
   alias Whisp.Repo
   alias Whisp.Account.User
 
-	plug Guardian.Plug.EnsureAuthenticated, [handler: WhispWeb.SessionController] when action in [:rooms]
+  plug Guardian.Plug.EnsureAuthenticated, [handler: WhispWeb.SessionController] when action in [:rooms]
 
   def create(conn, params) do
     changeset = User.registration_changeset(%User{}, params)
