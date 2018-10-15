@@ -50,7 +50,7 @@ defmodule WhispWeb.SessionController do
 	def unauthenticated(conn, _params) do
 		conn
 		|> put_status(:forbidden)
-		|> render(Whisp.SessionView, "forbidden.json", error: "Not authenticated")
+		|> render(WhispWeb.SessionView, "forbidden.json", error: "Not authenticated")
 	end
 
 	defp authenticate(%{"email" => email, "password" => password}) do

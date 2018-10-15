@@ -4,6 +4,8 @@ defmodule WhispWeb.UserController do
   alias Whisp.Repo
   alias Whisp.Account.User
 
+	plug Guardian.Plug.EnsureAuthenticated, [handler: WhispWeb.SessionController] when action in [:rooms]
+
   def create(conn, params) do
     changeset = User.registration_changeset(%User{}, params)
 
@@ -21,5 +23,11 @@ defmodule WhispWeb.UserController do
         |> render(WhispWeb.ChangesetView, "error.json", changeset: changeset)
     end
   end
+
+	def rooms(conn, _params) do
+		current_user = Guardian.Plug.current_resource(conn)
+		rooms = Repo.all(Ecto.assoc(current_user, :rooms))
+		render(conn, WhispWeb.RoomView, "index.json", %{rooms: rooms})
+	end
 
 end
