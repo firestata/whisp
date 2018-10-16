@@ -6,6 +6,7 @@ defmodule Whisp.Chats.Room do
     field :name, :string
     field :topic, :string
     many_to_many :users, Whisp.Account.User, join_through: "user_rooms"
+    has_many :messages, Whisp.Message
 
     timestamps()
   end
