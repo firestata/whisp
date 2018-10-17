@@ -42,7 +42,7 @@ defmodule WhispWeb.RoomController do
       %{room_id: room.id, user_id: current_user.id})
 
     case Repo.insert(changeset) do
-      {:ok, user_room} ->
+      {:ok, _user_room} ->
         conn
         |> put_status(:created)
         |> render("show.json", %{room: room})
