@@ -4,7 +4,7 @@ defmodule Whisp.UserRoom do
 
 
   schema "user_rooms" do
-    belongs_to :user, Whisp.Accounts.User
+    belongs_to :user, Whisp.Account.User
     belongs_to :room, Whisp.Chats.Room
 
     timestamps()
