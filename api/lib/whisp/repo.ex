@@ -1,5 +1,6 @@
 defmodule Whisp.Repo do
   use Ecto.Repo, otp_app: :whisp
+  use Scrivener, page_size: 25
 
   @doc """
   Dynamically loads the repository url from the
