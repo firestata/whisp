@@ -39,10 +39,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :whisp, Whisp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "whisp",
-  password: "",
   database: "whisp_db",
-  hostname: "localhost",
+  hostname: "postgres",
   pool_size: 10
 
 config :guardian, Guardian,
