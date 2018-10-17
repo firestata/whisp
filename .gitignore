@@ -19,3 +19,5 @@ erl_crash.dump
 /api/data
 
 /api/_build
+
+/api/deps
