@@ -2,16 +2,16 @@
 
 ## Backend API
 
-| verb   | path                  | controller                 | handler func. | description                            |
-|--------|-----------------------|----------------------------|---------------|----------------------------------------|
-| POST   | /api/sessions         | WhispWeb.SessionController | :create       | log in user/create new session token   |
-| DELETE | /api/sessions         | WhispWeb.SessionController | :delete       | log out user/delete session revoke     |
-| POST   | /api/sessions/refresh | WhispWeb.SessionController | :refresh      | refresh session token                  |
-| POST   | /api/users            | WhispWeb.UserController    | :create       | create new user                        |
-| GET    | /api/users/:id/rooms  | WhispWeb.UserController    | :rooms        | list joined rooms of specified user ID |
-| GET    | /api/rooms            | WhispWeb.RoomController    | :index        | list all rooms                         |
-| POST   | /api/rooms            | WhispWeb.RoomController    | :create       | create new room                        |
-| POST   | /api/rooms/:id/join   | WhispWeb.RoomController    | :join         | join room of specified ID              |
+| verb   | path                  | controller                 | handler func. | description                            | expected input|
+|--------|-----------------------|----------------------------|---------------|----------------------------------------|---------------|
+| POST   | /api/sessions         | WhispWeb.SessionController | :create       | log in user/create new session token   | {"username":<username>,"email":<email>,"password":<password>}|
+| DELETE | /api/sessions         | WhispWeb.SessionController | :delete       | log out user/delete session revoke     ||
+| POST   | /api/sessions/refresh | WhispWeb.SessionController | :refresh      | refresh session token                  ||
+| POST   | /api/users            | WhispWeb.UserController    | :create       | create new user                        ||
+| GET    | /api/users/:id/rooms  | WhispWeb.UserController    | :rooms        | list joined rooms of specified user ID ||
+| GET    | /api/rooms            | WhispWeb.RoomController    | :index        | list all rooms                         ||
+| POST   | /api/rooms            | WhispWeb.RoomController    | :create       | create new room                        | {"name":<room_name>,"topic":<description>}|
+| POST   | /api/rooms/:id/join   | WhispWeb.RoomController    | :join         | join room of specified ID              ||
 
 ### Create user via curl
 ```
@@ -20,8 +20,8 @@ curl -X POST -H "Content-Type: application/json" <domain>:<port>/api/users --dat
 Returns user info and a JWT if sucessful:
 ```
 {"data":{"id":<id>,
-         "username":<username>
-		 "email":<email>},
+         "username":<username>,
+         "email":<email>},
  "meta":<token>}
 ```
 
