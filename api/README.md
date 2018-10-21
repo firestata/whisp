@@ -1,19 +1,19 @@
 # Whisp
 
-To start your Phoenix server:
+## Backend API
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Start Phoenix endpoint with `mix phx.server`
+| verb   | path                  | controller                 | handler func.                    |
+|--------|-----------------------|----------------------------|----------------------------------|
+| POST   | /api/sessions         | WhispWeb.SessionController | :create                          |
+| DELETE | /api/sessions         | WhispWeb.SessionController | :delete                          |
+| POST   | /api/sessions/refresh | WhispWeb.SessionController | :refresh                         |
+| POST   | /api/users            | WhispWeb.UserController    | :create                          |
+| GET    | /api/users/:id/rooms  | WhispWeb.UserController    | :rooms                           |
+| GET    | /api/rooms            | WhispWeb.RoomController    | :index                           |
+| POST   | /api/rooms            | WhispWeb.RoomController    | :create                          |
+| POST   | /api/rooms/:id/join   | WhispWeb.RoomController    | :join                            |
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+### Create user via curl
+```
+curl -X POST -H "Content-Type: application/json" <domain>:<port>/api/users --data '{"username":"jsnow","email","jon.snow@youknownothing.org","password":"imadragonboi"}'
+```
