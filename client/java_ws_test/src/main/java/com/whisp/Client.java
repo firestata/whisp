@@ -9,7 +9,7 @@ public class Client {
 			return;
 		}
 
-		String jwt = args[0]
+		String jwt = args[0];
 
 		try {
 			System.out.println("create socket");
