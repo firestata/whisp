@@ -20,6 +20,8 @@ defmodule WhispWeb.RoomChannel do
 			messages: Phoenix.View.render_many(page.entries, WhispWeb.MessageView, "message.json"),
 			pagination: Whisp.PaginationHelpers.pagination(page)}
 
+		IO.inspect response
+
 		# send(self(), :after_join)
 		{:ok, response, assign(socket, :room, room)}
 	end
