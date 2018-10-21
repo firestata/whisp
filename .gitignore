@@ -21,3 +21,6 @@ erl_crash.dump
 /api/_build
 
 /api/deps
+
+# java
+/**/target
