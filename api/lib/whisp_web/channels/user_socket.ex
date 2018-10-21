@@ -2,7 +2,7 @@ defmodule WhispWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  channel "room:*", WhispWeb.RoomChannel
+  channel "rooms:*", WhispWeb.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
